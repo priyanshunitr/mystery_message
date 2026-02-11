@@ -1,5 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
+// ________________________________________________________________________________________________________
+
 export interface Message extends Document {
   content: string;
   createdAt: Date;
@@ -16,6 +18,7 @@ const MessageSchema: Schema<Message> = new mongoose.Schema({
     default: Date.now,
   },
 });
+// ________________________________________________________________________________________________________
 
 export interface User extends Document {
   username: string;
@@ -28,7 +31,6 @@ export interface User extends Document {
   messages: Message[];
 }
 
-// Updated User schema
 const UserSchema: Schema<User> = new mongoose.Schema({
   username: {
     type: String,
@@ -64,6 +66,8 @@ const UserSchema: Schema<User> = new mongoose.Schema({
   },
   messages: [MessageSchema],
 });
+
+//________________________________________________________________________________________________________
 
 const UserModel =
   (mongoose.models.User as mongoose.Model<User>) ||
