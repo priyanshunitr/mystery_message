@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-type ConnectionObject = {
+interface ConnectionObject {
     isConnected? : number;
 }
 
